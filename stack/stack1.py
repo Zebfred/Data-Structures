@@ -1,12 +1,12 @@
 import sys
-sys.path.append('../single_linklist')
+sys.path.append('../single_linkedlink')
 from singly_linklist import LinkedList
 
 class Stack:
     def __init__(self):
         self.size = 0
-        # Why is our DLL a good choice to store our elements?
-        # self.storage = ?
+
+
         self.sll = LinkedList()
 
     def push(self, value):
