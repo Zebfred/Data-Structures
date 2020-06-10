@@ -1,7 +1,7 @@
-import sys
-sys.path.append('../queue_and_stack')
-from queue import Queue
-from stack import Stack
+#import sys
+#sys.path.append('../queue_and_stack')
+#from queue import Queue
+#cfrom stack import Stack
 #using those modules
 
 
@@ -27,7 +27,7 @@ class BSTNode:
         # print(self.value)
          if value >= self.value:
              if self.right is None:
-                 self.right = BinarySearchTree(value)
+                 self.right = BSTNode(value)
                  return
              else:
                  self = self.right
@@ -35,7 +35,7 @@ class BSTNode:
          else:
              value < self.value
              if self.left is None:
-                 self.left = BinarySearchTree(value)
+                 self.left = BSTNode(value)
                  return
              else:
                  self = self.left
@@ -74,7 +74,7 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        cb(self.value)
+        fn(self.value)
         # if self.right and self.left:
         #     self.left.for_each(cb)
         #     self.right.for_each(cb)
