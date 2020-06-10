@@ -1,7 +1,14 @@
+import sys
+sys.path.append('../queue_and_stack')
+from queue import Queue
+from stack import Stack
+#using those modules
+
+
 """
-Binary search trees are a data structure that enforce an ordering over 
-the data they store. That ordering in turn makes it a lot more efficient 
-at searching for a particular piece of data in the tree. 
+Binary search trees are a data structure that enforce an ordering over
+the data they store. That ordering in turn makes it a lot more efficient
+at searching for a particular piece of data in the tree.
 
 This part of the project comprises two days:
 1. Implement the methods `insert`, `contains`, `get_max`, and `for_each`
@@ -17,19 +24,64 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # print(self.value)
+         if value >= self.value:
+             if self.right is None:
+                 self.right = BinarySearchTree(value)
+                 return
+             else:
+                 self = self.right
+                 return self.insert(value)
+         else:
+             value < self.value
+             if self.left is None:
+                 self.left = BinarySearchTree(value)
+                 return
+             else:
+                 self = self.left
+                 return self.insert(value)
+        #pass
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if self.value == target:
+            return(True)
+
+        elif target > self.value:
+            if self.right is None:
+                return False
+            else:
+                self = self.right
+                return self.contains(target)
+        else:
+            if self.left is None:
+                return False
+            else:
+                self = self.left
+                return self.contains(target)
+    #    pass
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if self.right is None:
+            return self.value
+        else:
+            self = self.right
+            return self.get_max()
+        #pass
+
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
+        cb(self.value)
+        # if self.right and self.left:
+        #     self.left.for_each(cb)
+        #     self.right.for_each(cb)
+        if self.right:
+            self.right.for_each(fn)
+        if self.left:
+            self.left.for_each(fn)
         pass
 
     # Part 2 -----------------------
