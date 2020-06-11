@@ -1,7 +1,8 @@
 #import sys
-#sys.path.append('../queue_and_stack')
+#sys.path.append('../queue')
+#sys.path.append('../stack')
 #from queue import Queue
-#cfrom stack import Stack
+#from stack import Stack
 #using those modules
 
 
@@ -16,6 +17,12 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+import sys
+sys.path.append('../stack')
+
+from stack import Stack
+
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -89,17 +96,47 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        if node:
+            if node.left:
+                node.in_order_print(node.left)
+
+
+            print(node.value)
+
+            if node.right:
+                node.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        stack = [node]
+
+        while stack != []:
+            look = stack[0]
+
+            if look.right:
+                stack.append(look.right)
+            if look.left:
+                stack.append(look.left)
+
+            print(look.value)
+            stack = stack[1:]
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        stack = [node]
+
+        while stack != []:
+
+            look = stack[-1]
+            print(look.value)
+            stack = stack[0:-1]
+            if look.right is not None:
+                stack.append(look.right)
+
+            if look.left is not None:
+                stack.append(look.left)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
