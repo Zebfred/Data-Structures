@@ -76,7 +76,9 @@ class LinkedList:
 
         value = self.tail.get_value()
         self.tail = current
+        current.set_next(None)
         return value
+#remove the next from the new tail
 
     def contains(self, value):
         if not self.head:
@@ -100,6 +102,7 @@ class LinkedList:
                 return True
             # update our current node to the current node's next node
             current = current.get_next()
+
         # if we've gotten here, then the target node isn't in our list
         return False
 
