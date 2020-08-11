@@ -33,11 +33,12 @@ class Queue:
     def dequeue(self):
         try:
             val = self.sll.head.value
-            self.sll.remove_from_head()
+            self.sll.remove_head()
             self.size -= 1
             return(val)
-        except:
-            print('There are no values')
+        except Exception as e :
+
+            print(e)
 
     def len(self):
         return self.size

@@ -29,7 +29,7 @@ class Stack:
     def pop(self):
         try:
             val = self.sll.tail.value
-            self.sll.remove_from_tail()
+            self.sll.remove_tail()
             self.size -= 1
             return(val)
         except:
