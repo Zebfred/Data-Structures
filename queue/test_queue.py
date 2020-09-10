@@ -1,6 +1,5 @@
 import unittest
-from queue1 import Queue
-
+from queue import Queue
 
 class QueueTests(unittest.TestCase):
     def setUp(self):
@@ -43,3 +42,6 @@ class QueueTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+        
