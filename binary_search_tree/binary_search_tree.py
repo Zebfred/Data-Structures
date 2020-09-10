@@ -132,11 +132,12 @@ class BSTNode:
             look = stack[-1]
             print(look.value)
             stack = stack[0:-1]
-            if look.right is not None:
-                stack.append(look.right)
-
             if look.left is not None:
                 stack.append(look.left)
+                print()
+
+            if look.right is not None:
+                stack.append(look.right)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -148,3 +149,24 @@ class BSTNode:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
+
+bst = BSTNode(1) 
+bst.insert(8) 
+bst.insert(5)
+bst.insert(7) 
+bst.insert(6) 
+bst.insert(3) 
+bst.insert(4) 
+bst.insert(2)
+bst.bft_print(bst) 
+print("_______") 
+bst.dft_print(bst) 
+print("elegant methods") 
+print("pre order") 
+bst.pre_order_dft() 
+print("in order")
+bst.in_order_print() 
+print("post order") 
+bst.post_order_dft() 
+print()
